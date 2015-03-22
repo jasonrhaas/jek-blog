@@ -2,8 +2,12 @@ from fabric.api import local
 
 host = 'jasonrhaas.com'
 
+def test():
+	local("jekyll serve --watch")
+
 def prep():
-	print "Make sure to commit changes and push!"
+    local("git add -p && git commit")
+    local("git push")
 
 def deploy():
 	local("jekyll build")
